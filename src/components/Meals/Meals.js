@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react'
+import Cart from '../Cart/Cart'
 import AvailableMeals from './AvailableMeals'
 import MealsSummary from './MealsSummary'
 
 function Meals() {
   return (
     <Fragment>
+      <Cart />
         <MealsSummary />
         <AvailableMeals />
     </Fragment>
