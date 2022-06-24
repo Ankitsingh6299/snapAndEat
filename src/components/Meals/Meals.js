@@ -6,7 +6,7 @@ import MealsSummary from './MealsSummary'
 function Meals() {
   return (
     <Fragment>
-      <Cart />
+     
         <MealsSummary />
         <AvailableMeals />
     </Fragment>
