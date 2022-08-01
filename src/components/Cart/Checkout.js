@@ -2,7 +2,7 @@ import classes from './Checkout.module.css';
 import { useRef,useState } from 'react';
 
 const isEmpty = value => value.trim() === '';
-const isSixChars = value => value.trim().length === 5; 
+const isSixChars = value => value.trim().length === 6; 
 const Checkout = (props) => {
 
   const [formInputValidity,setFormInputValidity] = useState({
@@ -24,10 +24,11 @@ const Checkout = (props) => {
     const enteredPostalCode = postalCodeInputRef.current.value;
     const enteredCity = cityInputRef.current.value;
 
+    
     const enteredNameIsValid = !isEmpty(enteredName);
     const enteredStreetIsValid = !isEmpty(enteredStreet);
     const enteredCityIsValid = !isEmpty(enteredCity);
-    const enteredPostalCodeIsValid = !isSixChars(enteredPostalCode) && !isEmpty(enteredPostalCode);
+    const enteredPostalCodeIsValid = isSixChars(enteredPostalCode);
 
     setFormInputValidity({
       name:enteredNameIsValid,
@@ -44,14 +45,15 @@ const Checkout = (props) => {
    if(!formValid){
     return
    }
+   props.onConfirm({
+    name:enteredName,
+    city:enteredCity,
+    street:enteredStreet,
+    postalCode:enteredPostalCode
+  })
   };
 
- 
-  
 
-   
-   
-   
 
     const nameControlClasses = `${classes.control} ${formInputValidity.name ? '' : classes.invalid}`
     const streetControlClasses = `${classes.control} ${formInputValidity.street ? '' : classes.invalid}`
