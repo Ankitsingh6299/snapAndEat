@@ -13,7 +13,7 @@ function AvailableMeals() {
   const [httpError,setHttpError] = useState(null);
   useEffect(()=>{
     const fetchMeals = async() =>{
-      const response = await fetch('https://fir-post-95e19-default-rtdb.firebaseio.com/meals.json')
+      const response = await fetch('https://snapeat-d788d-default-rtdb.firebaseio.com//meals.json')
 
       if(!response.ok){
         throw new Error("Something went wrong.....")
